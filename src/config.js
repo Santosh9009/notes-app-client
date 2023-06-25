@@ -1,11 +1,12 @@
 const config = {
+  MAX_ATTACHMENT_SIZE: 5000000,
   s3: {
     REGION: "us-east-1",
     BUCKET: "santosh-app-notes",
   },
   apiGateway: {
     REGION: "us-east-1",
-    URL: "https://cknrlq79q3.execute-api.us-east-1.amazonaws.com/prod",
+    URL: "https://rhelf06mpb.execute-api.us-east-1.amazonaws.com/prod",
 },
 cognito: {
   REGION: "eu-north-1",
