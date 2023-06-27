@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import Form from "react-bootstrap/Form";
@@ -47,6 +48,7 @@ export default function Login() {
             onChange={handleFieldChange}
           />
         </Form.Group>
+        <Link to="/login/reset">Forgot password?</Link>
         <LoaderButton
           block
           size="lg"
