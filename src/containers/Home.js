@@ -6,6 +6,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { useAppContext } from "../libs/contextLib";
 import { onError } from "../libs/errorLib";
 import "./Home.css";
+import backgroundVideo from "./assets/pexels-oleg-gamulinskii-14399599 (360p).mp4";
+
 export default function Home() {
   const [notes, setNotes] = useState([]);
   const { isAuthenticated } = useAppContext();
@@ -32,39 +34,67 @@ export default function Home() {
     return (
       <>
         <LinkContainer to="/notes/new">
-          <ListGroup.Item action className="py-3 text-nowrap text-truncate">
+          <ListGroup.Item
+            action
+            className="create py-3 text-nowrap text-truncate"
+          >
             <BsPencilSquare size={17} />
-            <span className="ml-2 font-weight-bold">Create a new note</span>
+            <span className=" real-create ml-2 font-weight-bold ">
+              Create a new note
+            </span>
           </ListGroup.Item>
         </LinkContainer>
-        {notes.map(({ noteId, content, createdAt }) => (
-          <LinkContainer key={noteId} to={`/notes/${noteId}`}>
-            <ListGroup.Item action>
-              <span className="font-weight-bold">
-                {content.trim().split("\n")[0]}
-              </span>
-              <br />
-              <span className="text-muted">
-                Created: {new Date(createdAt).toLocaleString()}
-              </span>
-            </ListGroup.Item>
-          </LinkContainer>
-        ))}
+
+        <div className="notes-grid">
+          {notes.map(({ noteId, content, createdAt }) => (
+            <LinkContainer
+              className="linker"
+              key={noteId}
+              to={`/notes/${noteId}`}
+            >
+              <ListGroup.Item action className="custom-note-item">
+                <div className="note-content">
+                  <span className="note-title">
+                    {content.trim().split("\n")[0]}
+                  </span>
+                  <br />
+                  <span className="note-date">
+                    Created: {new Date(createdAt).toLocaleString()}
+                  </span>
+                </div>
+              </ListGroup.Item>
+            </LinkContainer>
+          ))}
+        </div>
       </>
     );
   }
   function renderLander() {
     return (
+      <div className="Main">
+        <video className="background-video" autoPlay loop muted>
+             <source src={backgroundVideo} type="video/mp4" />
+             Your browser does not support the video tag.
+           </video>
       <div className="lander">
-        <h1>Scratch</h1>
-        <p className="text-muted">A simple note taking app</p>
+        <h1>NoteTap</h1>
+        <p className="text-muted slogan"> A note a day keeps the chaos away</p>
+        <div className="buttons">
+          <LinkContainer to="/login">
+            <button className="btn btn-primary">Login</button>
+          </LinkContainer>
+          <LinkContainer to="/signup">
+            <button className="btn btn-primary">Sign Up</button>
+          </LinkContainer>
+        </div>
       </div>
+     </div>
     );
   }
   function renderNotes() {
     return (
       <div className="notes">
-        <h2 className="pb-3 mt-4 mb-3 border-bottom">Your Notes</h2>
+        <h2 className="Your pb-3 mt-4 mb-3 border-bottom">Your Notes</h2>
         <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup>
       </div>
     );

@@ -1,8 +1,140 @@
-.Home .lander {
-  padding: 80px 0;
+ .Main{
+  height: 100%;
+  width: 100%;
+ }
+ .background-video {
+  height: 100%;
+   width: 100%;
+   position: fixed;
+   top: 0; left: 0;
+   object-fit: cover;
+   z-index: -1;
+ } 
+ 
+ .lander {
+  height: 50vh;
+  padding: 100px 0 20px 0;
   text-align: center;
+  margin-top: 15vh;
 }
 .Home .lander h1 {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
+  margin-bottom: 2vh;
+  color: white;
+}
+.lander .slogan{
+  color:antiquewhite !important;
+}
+.Your{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.real-create{
+  color: white;
+  font-size: larger;
+}
+.Home .create{
+  background-color: #827aed; 
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin-bottom: 20px;
+}
+.Home .create:hover{
+  background-color: white;
+  box-shadow: 0 0 20px rgba(79, 77, 92, 0.6);
+  .real-create{
+    color: black;
+  }
+}
+
+.Home .lander .buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+ .Home .lander .btn{
+  height: 5vh;
+  width: auto;
+  margin: 20px;
+  font-size: 1.3rem;
+  background-color: #826aed;
+  color: white;
+  border-radius: 30px;
+  box-shadow: #827aed 0 10px 20px -10px;
+  box-sizing: border-box;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding : 0 1.5rem 0 1.5rem;
+} 
+
+.lander .btn:hover {
+  box-shadow: 0 0 20px rgba(244, 244, 246, 0.752);
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+.notes-grid{
+  display: grid;
+  grid-template-columns:  auto auto;
+  gap: 20px;
+  padding: 20px 0 20px 0 ;
+}
+.custom-note-item{
+  height: auto;
+  width: auto;
+  background-color: #E6E6FA;
+  border-radius: 20px;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.note-content {
+  margin-bottom: 10px;
+}
+
+.note-title {
+  font-size: 18px;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+.note-date {
+  font-size: 14px;
+  color: #888;
+}
+
+@media (min-width:769px) and (max-width:1024px){
+.lander{
+  /* margin-top: 10vh !important; */
+}
+.lander .btn{
+  font-size: larger !important;
+}
+}
+@media (min-width:381px) and (max-width:768px) {
+  .lander .btn{
+    font-size: larger !important;
+  }
+
+  .lander .btn:hover {
+    box-shadow: 0 0 20px rgba(222, 221, 230, 0.6);
+    background-color: white;
+    color: black;
+  }
+}
+
+@media (min-width:321px) and (max-width:480px){
+  .lander{
+    margin-top: 14vh !important;
+  }
+  .lander .btn{
+    font-size: medium !important;
+  }
+}
+@media (max-width:320px){
+  .lander .btn{
+    font-size: small !important;
+  }
 }

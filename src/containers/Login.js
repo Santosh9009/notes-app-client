@@ -7,6 +7,7 @@ import { useAppContext } from "../libs/contextLib";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import "./Login.css";
+
 export default function Login() {
   const { userHasAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
@@ -14,9 +15,11 @@ export default function Login() {
     email: "",
     password: "",
   });
+
   function validateForm() {
     return fields.email.length > 0 && fields.password.length > 0;
   }
+
   async function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
@@ -28,6 +31,8 @@ export default function Login() {
       setIsLoading(false);
     }
   }
+
+
   return (
     <div className="Login">
       <Form onSubmit={handleSubmit}>

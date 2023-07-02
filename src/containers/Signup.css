@@ -7,4 +7,17 @@
   .Settings > .LoaderButton:first-child {
   margin-bottom: 15px;
   }
+ 
   }
+  Form .LoaderButton:hover{
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: white;
+    color: black;
+    }
+
+    .create-purple{
+      background-color: #827aed !important;
+      color: white !important;
+      box-shadow: #827aed 0 10px 20px -10px;
+      font-weight: 700;
+    }

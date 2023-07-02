@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "aws-amplify": "^5.2.5",
+    "facebook-login": "^1.4.1",
     "react": "^18.2.0",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^18.2.0",
@@ -41,7 +42,7 @@
     ]
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.0.1",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.0-placeholder-for-preset-env.2"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0-placeholder-for-preset-env.2",
+    "@svgr/webpack": "^8.0.1"
   }
 }

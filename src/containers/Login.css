@@ -6,10 +6,23 @@
   margin: 0 auto;
   max-width: 320px;
   }
-  }
   .Login form a {
     margin-bottom: 15px;
     display: block;
     font-size: 14px;
-    }
-    
+  }
+}
+.Login .LoaderButton{
+  background-color:#827aed ;
+  box-shadow: #827aed 0 10px 20px -10px;
+  font-weight: 700;
+  border: 1px black;
+}
+.Login .LoaderButton:hover{
+color: white;
+box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+background-color: white;
+color: black;
+}
+
+

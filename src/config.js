@@ -6,7 +6,7 @@ const config = {
   },
   apiGateway: {
     REGION: "us-east-1",
-    URL: "https://rhelf06mpb.execute-api.us-east-1.amazonaws.com/prod",
+    URL: "https://bcifjywz69.execute-api.us-east-1.amazonaws.com/prod",
 },
 cognito: {
   REGION: "eu-north-1",
@@ -14,5 +14,9 @@ cognito: {
   APP_CLIENT_ID: "7ldo2bm9ac8mm1s0038skvje0c",
   IDENTITY_POOL_ID: "eu-north-1:b6a8e5a5-27b7-489a-b443-576b26360ab5",
 },
+social: {
+  FB: "654236212846470"
+  }
+  
 };
 export default config;

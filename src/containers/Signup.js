@@ -1,3 +1,4 @@
+import FacebookButton from "../components/FacebookButton";
 import { Auth } from "aws-amplify";
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
@@ -18,6 +19,7 @@ export default function Signup() {
   const [newUser, setNewUser] = useState(null);
   const { userHasAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
+
   function validateForm() {
     return (
       fields.email.length > 0 &&
@@ -73,7 +75,7 @@ export default function Signup() {
           block
           size="lg"
           type="submit"
-          variant="success"
+          className="create-purple"
           isLoading={isLoading}
           disabled={!validateConfirmationForm()}
         >
@@ -110,11 +112,11 @@ export default function Signup() {
             value={fields.confirmPassword}
           />
         </Form.Group>
-        <LoaderButton
+        <LoaderButton 
           block
           size="lg"
           type="submit"
-          variant="success"
+          className="create-purple"
           isLoading={isLoading}
           disabled={!validateForm()}
         >
