@@ -5,6 +5,7 @@ import { API } from "aws-amplify";
 import { useHistory } from "react-router-dom";
 import { onError } from "../libs/errorLib";
 import config from "../config";
+import "./Settings.css"
 export default function Settings() {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
@@ -16,12 +17,12 @@ export default function Settings() {
   return (
     <div className="Settings">
     <LinkContainer to="/settings/email">
-    <LoaderButton block bsSize="large">
+    <LoaderButton className="change" block bsSize="large">
     Change Email
     </LoaderButton>
     </LinkContainer>
     <LinkContainer to="/settings/password">
-    <LoaderButton block bsSize="large">
+    <LoaderButton className="change" block bsSize="large">
     Change Password
     </LoaderButton>
     </LinkContainer>

@@ -124,7 +124,8 @@ export default function Notes() {
             )}
             <Form.Control onChange={handleFileChange} type="file" />
           </Form.Group>
-          <LoaderButton
+          <LoaderButton 
+            className="save"
             block
             size="lg"
             type="submit"
@@ -134,9 +135,9 @@ export default function Notes() {
             Save
           </LoaderButton>
           <LoaderButton
+          className="delete"
             block
             size="lg"
-            variant="danger"
             onClick={handleDelete}
             isLoading={isDeleting}
           >

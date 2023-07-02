@@ -2,3 +2,9 @@
   height: 300px;
   font-size: 1.5rem;
   }
+  .save{
+    background-color:#827aed;
+  }
+  .delete{
+    background-color:rgba(230, 78, 78, 0.824);
+  }
