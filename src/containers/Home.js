@@ -1,17 +1,20 @@
 import { BsPencilSquare } from "react-icons/bs";
 import { LinkContainer } from "react-router-bootstrap";
-import { API } from "aws-amplify";
+import { API, Storage } from "aws-amplify";
 import React, { useState, useEffect } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useAppContext } from "../libs/contextLib";
 import { onError } from "../libs/errorLib";
 import "./Home.css";
 import backgroundVideo from "./assets/pexels-oleg-gamulinskii-14399599 (360p).mp4";
+import Items from "../components/Items";
+import Search from "../components/Search"; 
 
 export default function Home() {
   const [notes, setNotes] = useState([]);
   const { isAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(true);
+  const [searchText, setSearchText]=useState('');
   useEffect(() => {
     async function onLoad() {
       if (!isAuthenticated) {
@@ -19,6 +22,8 @@ export default function Home() {
       }
       try {
         const notes = await loadNotes();
+
+        console.log(notes);
         setNotes(notes);
       } catch (e) {
         onError(e);
@@ -30,9 +35,15 @@ export default function Home() {
   function loadNotes() {
     return API.get("notes", "/notes");
   }
+
   function renderNotesList(notes) {
+    const filteredNotes = notes.filter((note) =>
+    note.content.toLowerCase().includes(searchText.toLowerCase())
+  );
     return (
       <>
+      <Search handleSearchNote={setSearchText}/>
+
         <LinkContainer to="/notes/new">
           <ListGroup.Item
             action
@@ -44,27 +55,18 @@ export default function Home() {
             </span>
           </ListGroup.Item>
         </LinkContainer>
-
+        
         <div className="notes-grid">
-          {notes.map(({ noteId, content, createdAt }) => (
-            <LinkContainer
-              className="linker"
-              key={noteId}
-              to={`/notes/${noteId}`}
-            >
-              <ListGroup.Item action className="custom-note-item">
-                <div className="note-content">
-                  <span className="note-title">
-                    {content.trim().split("\n")[0]}
-                  </span>
-                  <br />
-                  <span className="note-date">
-                    Created: {new Date(createdAt).toLocaleString()}
-                  </span>
-                </div>
-              </ListGroup.Item>
-            </LinkContainer>
-          ))}
+          {filteredNotes.map(({ noteId, content, createdAt, attachment }) => {
+            return (
+              <Items
+                noteId={noteId}
+                content={content}
+                createdAt={createdAt}
+                attachment={attachment}
+              />
+            );
+          })}
         </div>
       </>
     );
@@ -73,22 +75,25 @@ export default function Home() {
     return (
       <div className="Main">
         <video className="background-video" autoPlay loop muted>
-             <source src={backgroundVideo} type="video/mp4" />
-             Your browser does not support the video tag.
-           </video>
-      <div className="lander">
-        <h1>NoteTap</h1>
-        <p className="text-muted slogan"> A note a day keeps the chaos away</p>
-        <div className="buttons">
-          <LinkContainer to="/login">
-            <button className="btn btn-primary">Login</button>
-          </LinkContainer>
-          <LinkContainer to="/signup">
-            <button className="btn btn-primary">Sign Up</button>
-          </LinkContainer>
+          <source src={backgroundVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="lander">
+          <h1>NoteTap</h1>
+          <p className="text-muted slogan">
+            {" "}
+            A note a day keeps the chaos away
+          </p>
+          <div className="buttons">
+            <LinkContainer to="/login">
+              <button className="btn btn-primary">Login</button>
+            </LinkContainer>
+            <LinkContainer to="/signup">
+              <button className="btn btn-primary">Sign Up</button>
+            </LinkContainer>
+          </div>
         </div>
       </div>
-     </div>
     );
   }
   function renderNotes() {

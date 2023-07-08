@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./Notes.css";
-
 import React, { useRef, useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { API, Storage } from "aws-amplify";
@@ -110,21 +109,21 @@ export default function Notes() {
             />
           </Form.Group>
           <Form.Group controlId="file">
-            <Form.Label>Attachment</Form.Label>
             {note.attachment && (
-              <p>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={note.attachmentURL}
-                >
-                  {formatFilename(note.attachment)}
-                </a>
-              </p>
+              // <p>
+              //   <a
+              //     target="_blank"
+              //     rel="noopener noreferrer"
+              //     href={note.attachmentURL}
+              //   >
+              //     {formatFilename(note.attachment)}
+              //   </a>
+              // </p>
+              <img src={note.attachmentURL} alt={content} className="attachment-img"/>
             )}
             <Form.Control onChange={handleFileChange} type="file" />
           </Form.Group>
-          <LoaderButton 
+          <LoaderButton
             className="save"
             block
             size="lg"
@@ -135,7 +134,7 @@ export default function Notes() {
             Save
           </LoaderButton>
           <LoaderButton
-          className="delete"
+            className="delete"
             block
             size="lg"
             onClick={handleDelete}

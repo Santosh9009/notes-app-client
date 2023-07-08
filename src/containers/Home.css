@@ -105,6 +105,28 @@
   color: #888;
 }
 
+/* redernoteslist */
+
+.Search{
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  padding: 0 0 0 1rem;
+}
+.search-icons{
+  margin: .2rem;
+}
+.Search input{
+  border: none;
+  background-color: rgb(233, 233, 233);
+}
+ .Search input:focus{
+  outline: none;
+ }
+
 @media (min-width:769px) and (max-width:1024px){
 .lander{
   /* margin-top: 10vh !important; */
